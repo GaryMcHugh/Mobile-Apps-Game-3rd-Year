@@ -19,16 +19,16 @@
             </Grid.ColumnDefinitions>
 
             <Grid x:Name="color0" Grid.Row="0" Grid.Column="0">
-                <Rectangle x:Name="greenRect" Fill="Green" Width="auto" Height="auto" Margin="3" Tapped="greenRect_Tapped"/>
+                <Rectangle x:Name="greenRect" Fill="Green" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="greenRect_Tapped"/>
             </Grid>
             <Grid x:Name="color1" Grid.Row="0" Grid.Column="1">
-                <Rectangle x:Name="RedRect" Fill="Red" Width="auto" Height="auto" Margin="3" Tapped="RedRect_Tapped"/>
+                <Rectangle x:Name="redRect" Fill="Red" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="redRect_Tapped"/>
             </Grid>
             <Grid x:Name="color2" Grid.Row="1" Grid.Column="0">
-                <Rectangle x:Name="YelowRect" Fill="Yellow" Width="auto" Height="auto" Margin="3" Tapped="YelowRect_Tapped"/>
+                <Rectangle x:Name="yellowRect" Fill="Yellow" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="yelowRect_Tapped"/>
             </Grid>
             <Grid x:Name="color3" Grid.Row="1" Grid.Column="1">
-                <Rectangle x:Name="BlueRect" Fill="Blue" Width="auto" Height="auto" Margin="3" Tapped="BlueRect_Tapped"/>
+                <Rectangle x:Name="blueRect" Fill="Blue" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="blueRect_Tapped"/>
             </Grid>
         </Grid>
 
@@ -40,6 +40,34 @@
 
         <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>
         <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="254,584,0,0" VerticalAlignment="Top" Click="btnGenerate_Click"/>
+
+        <Grid.Resources>
+            <Storyboard x:Name="storyboardGreenRect" Storyboard.TargetName="greenRect" Storyboard.TargetProperty="Opacity" Completed="storyboardGreenRectAnimationFin">
+                <DoubleAnimation Storyboard.TargetName="greenRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:1" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardRedRect" Storyboard.TargetName="redRect" Storyboard.TargetProperty="Opacity" Completed="storyboardRedRectAnimationFin">
+                <DoubleAnimation Storyboard.TargetName="redRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:1" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardYellowRect" Storyboard.TargetName="yellowRect" Storyboard.TargetProperty="Opacity" Completed="storyboardYellowRectAnimationFin">
+                <DoubleAnimation Storyboard.TargetName="yellowRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:1" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardBlueRect" Storyboard.TargetName="blueRect" Storyboard.TargetProperty="Opacity" Completed="storyboardBlueRectAnimationFin">
+                <DoubleAnimation Storyboard.TargetName="blueRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:1" 
+                             AutoReverse="True"/>
+            </Storyboard>
+
+        </Grid.Resources>
 
     </Grid>
 </Page>

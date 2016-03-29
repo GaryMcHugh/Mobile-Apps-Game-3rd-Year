@@ -40,29 +40,46 @@ namespace App1
             txtRandom.Text = colors[randomNum];
         }
 
-        private void BlueRect_Tapped(object sender, TappedRoutedEventArgs e)
+        private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //animate opacity
+            storyboardBlueRect.Begin();
         }
 
-        private void YelowRect_Tapped(object sender, TappedRoutedEventArgs e)
+        private void yelowRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            storyboardYellowRect.Begin();
         }
 
         private void greenRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            storyboardGreenRect.Begin();
         }
 
-        private void RedRect_Tapped(object sender, TappedRoutedEventArgs e)
+        private void redRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            storyboardRedRect.Begin();
         }
 
         private void Tapped_txtStart(object sender, TappedRoutedEventArgs e)
         {
             //start game
+        }
+        private void storyboardGreenRectAnimationFin(object sender, object e)
+        {
+
+        }
+        private void storyboardRedRectAnimationFin(object sender, object e)
+        {
+
+        }
+        private void storyboardYellowRectAnimationFin(object sender, object e)
+        {
+
+        }
+        private void storyboardBlueRectAnimationFin(object sender, object e)
+        {
+
         }
     }
 }

@@ -7,7 +7,33 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="color0" Grid.Row="0" Grid.Column="0">
+                <Rectangle x:Name="greenRect" Fill="Green" Width="auto" Height="auto" Margin="3" Tapped="greenRect_Tapped"/>
+            </Grid>
+            <Grid x:Name="color1" Grid.Row="0" Grid.Column="1">
+                <Rectangle x:Name="RedRect" Fill="Red" Width="auto" Height="auto" Margin="3" Tapped="RedRect_Tapped"/>
+            </Grid>
+            <Grid x:Name="color2" Grid.Row="1" Grid.Column="0">
+                <Rectangle x:Name="YelowRect" Fill="Yellow" Width="auto" Height="auto" Margin="3" Tapped="YelowRect_Tapped"/>
+            </Grid>
+            <Grid x:Name="color3" Grid.Row="1" Grid.Column="1">
+                <Rectangle x:Name="BlueRect" Fill="Blue" Width="auto" Height="auto" Margin="3" Tapped="BlueRect_Tapped"/>
+            </Grid>
+        </Grid>
+        
+        <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>
+        <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="254,584,0,0" VerticalAlignment="Top" Click="btnGenerate_Click"/>
 
     </Grid>
 </Page>

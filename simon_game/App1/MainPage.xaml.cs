@@ -22,9 +22,42 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        string[] colors;
+        Random r;
         public MainPage()
         {
             this.InitializeComponent();
+
+            colors = new string[]
+            {"red", "blue", "yellow", "green"};
+
+            r = new Random();
+        }
+
+        private void btnGenerate_Click(object sender, RoutedEventArgs e)
+        {
+            int randomNum = r.Next(0, colors.Length);
+            txtRandom.Text = colors[randomNum];
+        }
+
+        private void BlueRect_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void YelowRect_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void greenRect_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void RedRect_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

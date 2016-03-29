@@ -42,7 +42,7 @@ namespace App1
 
         private void BlueRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            //animate opacity
         }
 
         private void YelowRect_Tapped(object sender, TappedRoutedEventArgs e)
@@ -58,6 +58,11 @@ namespace App1
         private void RedRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
 
+        }
+
+        private void Tapped_txtStart(object sender, TappedRoutedEventArgs e)
+        {
+            //start game
         }
     }
 }

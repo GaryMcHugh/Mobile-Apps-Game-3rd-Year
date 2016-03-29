@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="Black">
-        <Grid>
+        <Grid x:Name="MainShapes">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -31,7 +31,13 @@
                 <Rectangle x:Name="BlueRect" Fill="Blue" Width="auto" Height="auto" Margin="3" Tapped="BlueRect_Tapped"/>
             </Grid>
         </Grid>
-        
+
+        <Grid x:Name="InfoShape">
+            <Rectangle x:Name="CenterRect" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="100" Stroke="White" StrokeThickness="4" RadiusX="15" RadiusY="15" Tapped="Tapped_txtStart"/>
+            <TextBlock x:Name="txtTurnNumber" Text="0" Height="137" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="110" TextWrapping="Wrap" Tapped="Tapped_txtStart" Margin="140,245,146,270" />
+            <TextBlock x:Name="txtStart" Text="    Tap to Start" Height="auto" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Tapped="Tapped_txtStart" Margin="75,304,105,302" />
+        </Grid>
+
         <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>
         <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="254,584,0,0" VerticalAlignment="Top" Click="btnGenerate_Click"/>
 

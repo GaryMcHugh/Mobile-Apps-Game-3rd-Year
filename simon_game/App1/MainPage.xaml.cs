@@ -22,43 +22,48 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        string[] colors;
+        const int NUMBER_OF_COLORS = 4; //representing the colours as a number instead of a string
+        const int COLOR1 = 1; //red
+        const int COLOR2 = 2; //green
+        const int COLOR3 = 3; //blue
+        const int COLOR4 = 4; //yellow
+        const int MAX = 50; //max sequence allowed (50 animatons in a row)
+
         Random r;
+
+        int[] correctColorSequence; //array to store the generated sequence
+        int[] playerColorSequence; //array to store the users input
+
         public MainPage()
         {
             this.InitializeComponent();
 
-            colors = new string[]
-            {"red", "blue", "yellow", "green"};
+            r = new Random(); //seeded random number based on time
 
-            r = new Random();
-        }
-
-        private void btnGenerate_Click(object sender, RoutedEventArgs e)
-        {
-            int randomNum = r.Next(0, colors.Length);
-            txtRandom.Text = colors[randomNum];
+            correctColorSequence = new int[MAX]; //set to max to generate random number
+            playerColorSequence = new int[MAX];
         }
 
         private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //animate opacity
-            storyboardBlueRect.Begin();
+            storyboardBlueRect.Begin(); //start animation when shape is tapped/clicked
         }
 
         private void yelowRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            storyboardYellowRect.Begin();
+            storyboardYellowRect.Begin(); //start animation when shape is tapped/clicked
+            createColorSequence(); //call random number generator method
         }
 
         private void greenRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            storyboardGreenRect.Begin();
+            storyboardGreenRect.Begin(); //start animation when shape is tapped/clicked
         }
 
         private void redRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            storyboardRedRect.Begin();
+            storyboardRedRect.Begin(); //start animation when shape is tapped/clicked
         }
 
         private void Tapped_txtStart(object sender, TappedRoutedEventArgs e)
@@ -80,6 +85,17 @@ namespace App1
         private void storyboardBlueRectAnimationFin(object sender, object e)
         {
 
+        }
+
+        private void createColorSequence()
+        {
+            //generate a random number to represent colours
+            for (int i = 0; i < MAX; i++)
+            {
+                correctColorSequence[i] = r.Next(1, NUMBER_OF_COLORS+1); //generate random number and store it in the correctSeq array
+                playerColorSequence[i] = 0;
+                txtRandom.Text = correctColorSequence[i].ToString(); //put number out to textbox for testing purposes
+            }
         }
     }
 }

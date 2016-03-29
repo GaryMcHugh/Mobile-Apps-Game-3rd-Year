@@ -9,6 +9,7 @@
 
     <Grid Background="Black">
         <Grid x:Name="MainShapes">
+            <!-- Create a 2x2 grid for the interface -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -18,8 +19,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <!-- Create the rectangles and put them into the relevant row/column -->
             <Grid x:Name="color0" Grid.Row="0" Grid.Column="0">
-                <Rectangle x:Name="greenRect" Fill="Green" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="greenRect_Tapped"/>
+                <!-- set opacity to animate and margin for looks, ad tapped events for user input -->
+                <Rectangle x:Name="greenRect" Fill="Green" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="greenRect_Tapped"/> 
             </Grid>
             <Grid x:Name="color1" Grid.Row="0" Grid.Column="1">
                 <Rectangle x:Name="redRect" Fill="Red" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="redRect_Tapped"/>
@@ -33,15 +36,16 @@
         </Grid>
 
         <Grid x:Name="InfoShape">
+            <!-- place to keep score and let user start the game with -->
             <Rectangle x:Name="CenterRect" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="100" Stroke="White" StrokeThickness="4" RadiusX="15" RadiusY="15" Tapped="Tapped_txtStart"/>
             <TextBlock x:Name="txtTurnNumber" Text="0" Height="160" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="110" TextWrapping="Wrap" Tapped="Tapped_txtStart"/>
             <TextBlock x:Name="txtStart" Text="Tap to Start" Height="auto" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="25" TextWrapping="Wrap" Tapped="Tapped_txtStart"/>
         </Grid>
-
+        <!-- used for testing purposes -->
         <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>
-        <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="254,584,0,0" VerticalAlignment="Top" Click="btnGenerate_Click"/>
 
         <Grid.Resources>
+            <!-- Create double animations on opacity to show sequence and input -->
             <Storyboard x:Name="storyboardGreenRect" Storyboard.TargetName="greenRect" Storyboard.TargetProperty="Opacity" Completed="storyboardGreenRectAnimationFin">
                 <DoubleAnimation Storyboard.TargetName="greenRect"
                              Storyboard.TargetProperty="Opacity"

@@ -37,6 +37,8 @@ namespace App1
         int generatedColorSequenceIndex = 0; //need to keep track of index to play animation
         int usersGuessSequenceIndex = 0; //keep track of users input to compare to generated
 
+        int sequenceLength = 0;
+
         //int mi = 0;
 
         public MainPage()
@@ -47,7 +49,7 @@ namespace App1
 
             generatedColorSequence = new int[MAX]; //set to max to generate random number
             usersGuessSequence = new int[MAX];
-            createColorSequence();
+            createColorSequence(); //generate a sequence when they start the application
 
             txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when application starts
 
@@ -88,6 +90,10 @@ namespace App1
                     play(); //start the game
                 }
             }
+            else if (txtStart.Text != "Tap to Start") //which means its equal to winner
+            {
+                gameOver();
+            }
             //will change text to winner if hits max.. then txtStart wont equal Tap to start
             else
             {
@@ -96,8 +102,19 @@ namespace App1
         private void play()
         {
             //initialise variables here
+            int sequenceLength = 0;
+            txtTurnNumber.Text = sequenceLength.ToString(); //set the turn number to current sequence length
+            usersGuessSequenceIndex = 0;
+            createColorSequence(); //do this incase they have started a new game
+
             txtTurnNumber.Visibility = Visibility.Visible; //set counter to Visible when the game starts
             txtStart.Visibility = Visibility.Collapsed; //set Start text to collapsed when the game starts
+        }
+        private void gameOver()
+        {
+            //initialise variables here
+            txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when the game ends
+            txtStart.Visibility = Visibility.Visible; //set Start text to visible when the game ends
         }
         private void storyboardGreenRectAnimationFin(object sender, object e)
         {

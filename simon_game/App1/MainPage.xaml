@@ -49,25 +49,25 @@
             <Storyboard x:Name="storyboardGreenRect" Storyboard.TargetName="greenRect" Storyboard.TargetProperty="Opacity" Completed="storyboardGreenRectAnimationFin">
                 <DoubleAnimation Storyboard.TargetName="greenRect"
                              Storyboard.TargetProperty="Opacity"
-                             From="1.0" To="0.5" Duration="0:0:1" 
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
                              AutoReverse="True"/>
             </Storyboard>
             <Storyboard x:Name="storyboardRedRect" Storyboard.TargetName="redRect" Storyboard.TargetProperty="Opacity" Completed="storyboardRedRectAnimationFin">
                 <DoubleAnimation Storyboard.TargetName="redRect"
                              Storyboard.TargetProperty="Opacity"
-                             From="1.0" To="0.5" Duration="0:0:1" 
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
                              AutoReverse="True"/>
             </Storyboard>
             <Storyboard x:Name="storyboardYellowRect" Storyboard.TargetName="yellowRect" Storyboard.TargetProperty="Opacity" Completed="storyboardYellowRectAnimationFin">
                 <DoubleAnimation Storyboard.TargetName="yellowRect"
                              Storyboard.TargetProperty="Opacity"
-                             From="1.0" To="0.5" Duration="0:0:1" 
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
                              AutoReverse="True"/>
             </Storyboard>
             <Storyboard x:Name="storyboardBlueRect" Storyboard.TargetName="blueRect" Storyboard.TargetProperty="Opacity" Completed="storyboardBlueRectAnimationFin">
                 <DoubleAnimation Storyboard.TargetName="blueRect"
                              Storyboard.TargetProperty="Opacity"
-                             From="1.0" To="0.5" Duration="0:0:1" 
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
                              AutoReverse="True"/>
             </Storyboard>
 

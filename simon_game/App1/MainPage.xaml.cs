@@ -118,19 +118,19 @@ namespace App1
         }
         private void storyboardGreenRectAnimationFin(object sender, object e)
         {
-
+            playGeneratedSequence();
         }
         private void storyboardRedRectAnimationFin(object sender, object e)
         {
-
+            playGeneratedSequence();
         }
         private void storyboardYellowRectAnimationFin(object sender, object e)
         {
-
+            playGeneratedSequence();
         }
         private void storyboardBlueRectAnimationFin(object sender, object e)
         {
-
+            playGeneratedSequence();
         }
 
         private void createColorSequence()
@@ -142,6 +142,27 @@ namespace App1
                 generatedColorSequence[i] = r.Next(1, NUMBER_OF_COLORS+1); //generate random number and store it in the generatedSeq array
                 usersGuessSequence[i] = 0;
             }
+        }
+
+        private void playGeneratedSequence()
+        {
+            if (generatedColorSequence[generatedColorSequenceIndex] == 1)
+            {
+                storyboardGreenRect.Begin();
+            }
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 2)
+            {
+                storyboardRedRect.Begin();
+            }
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 3)
+            {
+                storyboardYellowRect.Begin();
+            }
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 4)
+            {
+                storyboardBlueRect.Begin();
+            }
+            generatedColorSequenceIndex++;
         }
 
     }

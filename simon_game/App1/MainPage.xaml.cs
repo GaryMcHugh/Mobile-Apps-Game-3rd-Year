@@ -244,23 +244,23 @@ namespace App1
 
         private void playGeneratedSequence()
         {
-            if (generatedColorSequence[generatedColorSequenceIndex] == 1)
+            if (generatedColorSequence[generatedColorSequenceIndex] == 1) //if generated sequence is 1 play greenRect Animation
             {
                 storyboardGreenRect.Begin();
             }
-            else if (generatedColorSequence[generatedColorSequenceIndex] == 2)
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 2)//if generated sequence is 1 play redRect Animation
             {
                 storyboardRedRect.Begin();
             }
-            else if (generatedColorSequence[generatedColorSequenceIndex] == 3)
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 3)//if generated sequence is 1 play yellowRect Animation
             {
                 storyboardYellowRect.Begin();
             }
-            else if (generatedColorSequence[generatedColorSequenceIndex] == 4)
+            else if (generatedColorSequence[generatedColorSequenceIndex] == 4)//if generated sequence is 1 play blueRect Animation
             {
                 storyboardBlueRect.Begin();
             }
-            generatedColorSequenceIndex++;
+            generatedColorSequenceIndex++; //increase the index to move to next number in the sequence
         }
 
     }

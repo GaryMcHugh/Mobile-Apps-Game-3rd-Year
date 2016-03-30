@@ -31,8 +31,9 @@ namespace App1
 
         Random r;
 
-        Boolean userTurn = true;
-        Boolean gameRunning = false;
+        Boolean userTurn = true; //specify if the user can guess or not
+        Boolean gameRunning = false; //specify if the game is over or not
+        Boolean guessCorrect = false; //check if the user's guess is correct
 
         int[] generatedColorSequence; //array to store the generated sequence
         int[] usersGuessSequence; //array to store the users input
@@ -40,7 +41,7 @@ namespace App1
         int generatedColorSequenceIndex = 0; //need to keep track of index to play animation
         int usersGuessSequenceIndex = 0; //keep track of users input to compare to generated
 
-        int sequenceLength = 0;
+        int sequenceLength = 0; //current size of sequence to be guessed
 
         //int mi = 0;
 
@@ -50,12 +51,12 @@ namespace App1
 
             r = new Random(); //seeded random number based on time
 
-            generatedColorSequence = new int[MAX]; //set to max to generate random number
-            usersGuessSequence = new int[MAX];
-            createColorSequence(); //generate a sequence when they start the application
-
             txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when application starts
 
+            createColorSequence(); //generate a sequence when they start the application
+
+            generatedColorSequence = new int[MAX]; //set to max to generate random number
+            usersGuessSequence = new int[MAX];
         }
 
         private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
@@ -69,7 +70,7 @@ namespace App1
                 {
                     usersGuessSequence[usersGuessSequenceIndex++] = COLOR4;//move to the next sequence (after first one runs)
                     userTurn = false;
-                   // continueGame();
+                    compareGuess();
                 }
             }
         }
@@ -87,7 +88,7 @@ namespace App1
                 {
                     usersGuessSequence[usersGuessSequenceIndex++] = COLOR3;//move to the next sequence (after first one runs)
                     userTurn = false;
-                    // continueGame();
+                    compareGuess();
                 }
             }
         }
@@ -103,7 +104,7 @@ namespace App1
                 {
                     usersGuessSequence[usersGuessSequenceIndex++] = COLOR1;//move to the next sequence (after first one runs)
                     userTurn = false;
-                    // continueGame();
+                    compareGuess();
                 }
             }
         }
@@ -119,7 +120,7 @@ namespace App1
                 {
                     usersGuessSequence[usersGuessSequenceIndex++] = COLOR2; //move to the next sequence (after first one runs)
                     userTurn = false;
-                    // continueGame();
+                    compareGuess();
                 }
             }
         }
@@ -159,6 +160,9 @@ namespace App1
 
             txtTurnNumber.Visibility = Visibility.Visible; //set counter to Visible when the game starts
             txtStart.Visibility = Visibility.Collapsed; //set Start text to collapsed when the game starts
+
+            compareGuess();
+
         }
         private void gameOver()
         {
@@ -168,6 +172,48 @@ namespace App1
             txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when the game ends
             txtStart.Visibility = Visibility.Visible; //set Start text to visible when the game ends
         }
+
+        private void compareGuess()
+        {
+            guessCorrect = true;
+            for (int i = 0; i < usersGuessSequenceIndex; i++) //get to current sequence index
+            {
+                if (generatedColorSequence[i] == usersGuessSequence[i]) //compare generated guess to users guess
+                {
+                    //if they are the same we dont have to do anything
+                }
+                else
+                {
+                    guessCorrect = false; //otherwise they have guessed in correctly and we set the guess to false
+                    break;
+                }
+            }
+
+            if (guessCorrect == true) //if the guess was correct
+            {
+                if (usersGuessSequenceIndex >= sequenceLength) //move to the next item
+                {
+                    sequenceLength++;
+                    if (sequenceLength < MAX) //if we arent at the max number
+                    {
+                        txtTurnNumber.Text = sequenceLength.ToString(); //update the turn number
+                    }
+                    else // turn number must be equal to MAX so they have won!
+                    {
+                        txtStart.Text = "Winner";
+                    }
+                }
+                else //the color index is less than the round number so we keep going
+                {
+                    userTurn = true;
+                }
+            }
+            else //when the guess is not correct change the txtStart message to let them try again
+            {
+                txtStart.Text = "Tap to Start";
+            }
+        }
+
         private void storyboardGreenRectAnimationFin(object sender, object e)
         {
             playGeneratedSequence();

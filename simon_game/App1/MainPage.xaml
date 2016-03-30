@@ -71,6 +71,33 @@
                              AutoReverse="True"/>
             </Storyboard>
 
+
+            <!-- need animation for users guesses -->
+            <Storyboard x:Name="storyboardGreenRectUser" Storyboard.TargetName="greenRect" Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation Storyboard.TargetName="greenRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardRedRectUser" Storyboard.TargetName="redRect" Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation Storyboard.TargetName="redRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardYellowRectUser" Storyboard.TargetName="yellowRect" Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation Storyboard.TargetName="yellowRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
+                             AutoReverse="True"/>
+            </Storyboard>
+            <Storyboard x:Name="storyboardBlueRectUser" Storyboard.TargetName="blueRect" Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation Storyboard.TargetName="blueRect"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1.0" To="0.5" Duration="0:0:0.33" 
+                             AutoReverse="True"/>
+            </Storyboard>
+
         </Grid.Resources>
 
     </Grid>

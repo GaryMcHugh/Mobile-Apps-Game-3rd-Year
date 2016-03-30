@@ -23,13 +23,16 @@ namespace App1
     public sealed partial class MainPage : Page
     {
         const int NUMBER_OF_COLORS = 4; //representing the colours as a number instead of a string
-        const int COLOR1 = 1; //red
-        const int COLOR2 = 2; //green
-        const int COLOR3 = 3; //blue
-        const int COLOR4 = 4; //yellow
+        const int COLOR1 = 1; //green
+        const int COLOR2 = 2; //red
+        const int COLOR3 = 3; //yellow
+        const int COLOR4 = 4; //blue
         const int MAX = 50; //max sequence allowed (50 animatons in a row)
 
         Random r;
+
+        Boolean userTurn = true;
+        Boolean gameRunning = false;
 
         int[] generatedColorSequence; //array to store the generated sequence
         int[] usersGuessSequence; //array to store the users input
@@ -58,24 +61,67 @@ namespace App1
         private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //animate opacity
-            storyboardBlueRect.Begin(); //start animation when shape is tapped/clicked
+            if (userTurn == true)
+            {
+                storyboardBlueRect.Begin(); //if its the users guess start the animation
+
+                if (gameRunning == true) //if the game is not over (only time gameRunning will be false)
+                {
+                    usersGuessSequence[usersGuessSequenceIndex++] = COLOR4;//move to the next sequence (after first one runs)
+                    userTurn = false;
+                   // continueGame();
+                }
+            }
         }
 
-        private void yelowRect_Tapped(object sender, TappedRoutedEventArgs e)
+        private void yellowRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //txtRandom.Text = generatedColorSequence[mi].ToString();
             //mi++;
-            storyboardYellowRect.Begin(); //start animation when shape is tapped/clicked
+            //storyboardYellowRect.Begin(); //start animation when shape is tapped/clicked
+            if (userTurn == true)
+            {
+                storyboardYellowRect.Begin();//start animation when shape is tapped/clicked
+
+                if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
+                {
+                    usersGuessSequence[usersGuessSequenceIndex++] = COLOR3;//move to the next sequence (after first one runs)
+                    userTurn = false;
+                    // continueGame();
+                }
+            }
         }
 
         private void greenRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            storyboardGreenRect.Begin(); //start animation when shape is tapped/clicked
+            //storyboardGreenRect.Begin(); //start animation when shape is tapped/clicked
+            if (userTurn == true)
+            {
+                storyboardGreenRect.Begin();
+
+                if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
+                {
+                    usersGuessSequence[usersGuessSequenceIndex++] = COLOR1;//move to the next sequence (after first one runs)
+                    userTurn = false;
+                    // continueGame();
+                }
+            }
         }
 
         private void redRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            storyboardRedRect.Begin(); //start animation when shape is tapped/clicked
+            //storyboardRedRect.Begin(); //start animation when shape is tapped/clicked
+            if (userTurn == true)
+            {
+                storyboardRedRect.Begin();
+
+                if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
+                {
+                    usersGuessSequence[usersGuessSequenceIndex++] = COLOR2; //move to the next sequence (after first one runs)
+                    userTurn = false;
+                    // continueGame();
+                }
+            }
         }
 
         private void Tapped_txtStart(object sender, TappedRoutedEventArgs e)
@@ -102,10 +148,14 @@ namespace App1
         private void play()
         {
             //initialise variables here
-            int sequenceLength = 0;
+            int sequenceLength = 0; //has to be 0 at start of game
             txtTurnNumber.Text = sequenceLength.ToString(); //set the turn number to current sequence length
-            usersGuessSequenceIndex = 0;
+            usersGuessSequenceIndex = 0; //set users index back to 0
             createColorSequence(); //do this incase they have started a new game
+            gameRunning = true;
+            userTurn = true;
+            //commented out for testing
+            //userTurn = false;
 
             txtTurnNumber.Visibility = Visibility.Visible; //set counter to Visible when the game starts
             txtStart.Visibility = Visibility.Collapsed; //set Start text to collapsed when the game starts
@@ -113,6 +163,8 @@ namespace App1
         private void gameOver()
         {
             //initialise variables here
+            gameRunning = false;
+            userTurn = true;
             txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when the game ends
             txtStart.Visibility = Visibility.Visible; //set Start text to visible when the game ends
         }

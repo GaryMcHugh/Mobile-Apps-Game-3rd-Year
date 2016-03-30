@@ -28,7 +28,7 @@
                 <Rectangle x:Name="redRect" Fill="Red" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="redRect_Tapped"/>
             </Grid>
             <Grid x:Name="color2" Grid.Row="1" Grid.Column="0">
-                <Rectangle x:Name="yellowRect" Fill="Yellow" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="yelowRect_Tapped"/>
+                <Rectangle x:Name="yellowRect" Fill="Yellow" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="yellowRect_Tapped"/>
             </Grid>
             <Grid x:Name="color3" Grid.Row="1" Grid.Column="1">
                 <Rectangle x:Name="blueRect" Fill="Blue" Width="auto" Height="auto" Margin="3" Opacity="15" Tapped="blueRect_Tapped"/>

@@ -40,6 +40,7 @@
             <Rectangle x:Name="CenterRect" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="100" Stroke="White" StrokeThickness="4" RadiusX="15" RadiusY="15" Tapped="Tapped_txtStart"/>
             <TextBlock x:Name="txtTurnNumber" Text="0" Height="160" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="110" TextWrapping="Wrap" Visibility="Visible" Tapped="Tapped_txtStart"/>
             <TextBlock x:Name="txtStart" Text="Tap to Start" Height="auto" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Verdana" FontSize="22" TextWrapping="Wrap" Tapped="Tapped_txtStart"/>
+            <MediaElement x:Name="audioShinyDing" Source="Assets/shiny-ding.mp3" Width="0" Height="0" MediaEnded="audioShinyDing_MediaEnded" Volume="0.5"/>
         </Grid>
         <!-- used for testing purposes -->
         <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>

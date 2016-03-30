@@ -34,6 +34,7 @@ namespace App1
         Boolean userTurn = true; //specify if the user can guess or not
         Boolean gameRunning = false; //specify if the game is over or not
         Boolean guessCorrect = false; //check if the user's guess is correct
+        Boolean inAnimation = false;
 
         int[] generatedColorSequence; //array to store the generated sequence
         int[] usersGuessSequence; //array to store the users input
@@ -53,10 +54,10 @@ namespace App1
 
             txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when application starts
 
-            createColorSequence(); //generate a sequence when they start the application
-
             generatedColorSequence = new int[MAX]; //set to max to generate random number
             usersGuessSequence = new int[MAX];
+
+           createColorSequence(); //generate a sequence when they start the application
         }
 
         private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
@@ -64,7 +65,7 @@ namespace App1
             //animate opacity
             if (userTurn == true)
             {
-                storyboardBlueRect.Begin(); //if its the users guess start the animation
+                storyboardBlueRectUser.Begin(); //if its the users guess start the animation
 
                 if (gameRunning == true) //if the game is not over (only time gameRunning will be false)
                 {
@@ -82,7 +83,7 @@ namespace App1
             //storyboardYellowRect.Begin(); //start animation when shape is tapped/clicked
             if (userTurn == true)
             {
-                storyboardYellowRect.Begin();//start animation when shape is tapped/clicked
+                storyboardYellowRectUser.Begin();//start animation when shape is tapped/clicked
 
                 if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
                 {
@@ -98,7 +99,7 @@ namespace App1
             //storyboardGreenRect.Begin(); //start animation when shape is tapped/clicked
             if (userTurn == true)
             {
-                storyboardGreenRect.Begin();
+                storyboardGreenRectUser.Begin();
 
                 if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
                 {
@@ -114,7 +115,7 @@ namespace App1
             //storyboardRedRect.Begin(); //start animation when shape is tapped/clicked
             if (userTurn == true)
             {
-                storyboardRedRect.Begin();
+                storyboardRedRectUser.Begin();
 
                 if (gameRunning == true)//if the game is not over (only time gameRunning will be false)
                 {
@@ -153,8 +154,9 @@ namespace App1
             txtTurnNumber.Text = sequenceLength.ToString(); //set the turn number to current sequence length
             usersGuessSequenceIndex = 0; //set users index back to 0
             createColorSequence(); //do this incase they have started a new game
+
             gameRunning = true;
-            userTurn = true;
+            userTurn = false;
             //commented out for testing
             //userTurn = false;
 
@@ -196,6 +198,7 @@ namespace App1
                     sequenceLength++;
                     if (sequenceLength < MAX) //if we arent at the max number
                     {
+                        audioShinyDing.Play();
                         txtTurnNumber.Text = sequenceLength.ToString(); //update the turn number
                     }
                     else // turn number must be equal to MAX so they have won!
@@ -216,19 +219,59 @@ namespace App1
 
         private void storyboardGreenRectAnimationFin(object sender, object e)
         {
-            playGeneratedSequence();
+            if (generatedColorSequenceIndex < sequenceLength)
+            {
+                playGeneratedSequence();
+            }
+            else
+            {
+                inAnimation = false;
+                userTurn = true;
+                generatedColorSequenceIndex = 0;
+                usersGuessSequenceIndex = 0;
+            }
         }
         private void storyboardRedRectAnimationFin(object sender, object e)
         {
-            playGeneratedSequence();
+            if (generatedColorSequenceIndex < sequenceLength)
+            {
+                playGeneratedSequence();
+            }
+            else
+            {
+                inAnimation = false;
+                userTurn = true;
+                generatedColorSequenceIndex = 0;
+                usersGuessSequenceIndex = 0;
+            }
         }
         private void storyboardYellowRectAnimationFin(object sender, object e)
         {
-            playGeneratedSequence();
+            if (generatedColorSequenceIndex < sequenceLength)
+            {
+                playGeneratedSequence();
+            }
+            else
+            {
+                inAnimation = false;
+                userTurn = true;
+                generatedColorSequenceIndex = 0;
+                usersGuessSequenceIndex = 0;
+            }
         }
         private void storyboardBlueRectAnimationFin(object sender, object e)
         {
-            playGeneratedSequence();
+            if (generatedColorSequenceIndex < sequenceLength)
+            {
+                playGeneratedSequence();
+            }
+            else
+            {
+                inAnimation = false;
+                userTurn = true;
+                generatedColorSequenceIndex = 0;
+                usersGuessSequenceIndex = 0;
+            }
         }
 
         private void createColorSequence()
@@ -237,7 +280,7 @@ namespace App1
             for (int i = 0; i < MAX; i++)
             {
                 //generating entire sequence
-                generatedColorSequence[i] = r.Next(1, NUMBER_OF_COLORS+1); //generate random number and store it in the generatedSeq array
+                generatedColorSequence[i] = r.Next(1, NUMBER_OF_COLORS); //generate random number and store it in the generatedSeq array
                 usersGuessSequence[i] = 0;
             }
         }
@@ -247,20 +290,32 @@ namespace App1
             if (generatedColorSequence[generatedColorSequenceIndex] == 1) //if generated sequence is 1 play greenRect Animation
             {
                 storyboardGreenRect.Begin();
+                inAnimation = true;
             }
             else if (generatedColorSequence[generatedColorSequenceIndex] == 2)//if generated sequence is 1 play redRect Animation
             {
                 storyboardRedRect.Begin();
+                inAnimation = true;
             }
             else if (generatedColorSequence[generatedColorSequenceIndex] == 3)//if generated sequence is 1 play yellowRect Animation
             {
                 storyboardYellowRect.Begin();
+                inAnimation = true;
             }
             else if (generatedColorSequence[generatedColorSequenceIndex] == 4)//if generated sequence is 1 play blueRect Animation
             {
                 storyboardBlueRect.Begin();
+                inAnimation = true;
             }
             generatedColorSequenceIndex++; //increase the index to move to next number in the sequence
+        }
+
+        private void audioShinyDing_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            if (gameRunning)
+            {
+                playGeneratedSequence();
+            }
         }
 
     }

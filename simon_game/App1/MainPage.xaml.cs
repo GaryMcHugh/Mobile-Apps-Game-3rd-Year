@@ -31,8 +31,13 @@ namespace App1
 
         Random r;
 
-        int[] correctColorSequence; //array to store the generated sequence
-        int[] playerColorSequence; //array to store the users input
+        int[] generatedColorSequence; //array to store the generated sequence
+        int[] usersGuessSequence; //array to store the users input
+
+        int generatedColorSequenceIndex = 0; //need to keep track of index to play animation
+        int usersGuessSequenceIndex = 0; //keep track of users input to compare to generated
+
+        int mi = 0;
 
         public MainPage()
         {
@@ -40,8 +45,9 @@ namespace App1
 
             r = new Random(); //seeded random number based on time
 
-            correctColorSequence = new int[MAX]; //set to max to generate random number
-            playerColorSequence = new int[MAX];
+            generatedColorSequence = new int[MAX]; //set to max to generate random number
+            usersGuessSequence = new int[MAX];
+            createColorSequence();
         }
 
         private void blueRect_Tapped(object sender, TappedRoutedEventArgs e)
@@ -52,8 +58,9 @@ namespace App1
 
         private void yelowRect_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            txtRandom.Text = generatedColorSequence[mi].ToString();
+            mi++;
             storyboardYellowRect.Begin(); //start animation when shape is tapped/clicked
-            createColorSequence(); //call random number generator method
         }
 
         private void greenRect_Tapped(object sender, TappedRoutedEventArgs e)
@@ -92,10 +99,18 @@ namespace App1
             //generate a random number to represent colours
             for (int i = 0; i < MAX; i++)
             {
-                correctColorSequence[i] = r.Next(1, NUMBER_OF_COLORS+1); //generate random number and store it in the correctSeq array
-                playerColorSequence[i] = 0;
-                txtRandom.Text = correctColorSequence[i].ToString(); //put number out to textbox for testing purposes
+                generatedColorSequence[i] = r.Next(1, NUMBER_OF_COLORS+1); //generate random number and store it in the generatedSeq array
+                usersGuessSequence[i] = 0;
+                //txtRandom.Text = generatedColorSequence[i].ToString(); //put number out to textbox for testing purposes
             }
+            //checkRandomSequence();
+            //txtRandom.Text = "ran" + j;
+        }
+
+        private void checkRandomSequence()
+        {
+            int i= 40;
+           // txtRandom.Text = generatedColorSequence[i].ToString(); //put number out to textbox for testing purposes
         }
     }
 }

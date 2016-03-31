@@ -17,3 +17,8 @@ The webiste I used for the audio file can be found here:
 **Publisher Name:** GMcHugh
 
 **App Name:** Simon_Game
+
+**Public Link:** App is submitted for certification
+
+Below is a screenshot as proof that the App is submitted for certification:
+![alt text](https://github.com/GaryMcHugh/Mobile_Apps_Project/blob/master/simon_game/App1/Assets/proof.png "proof")

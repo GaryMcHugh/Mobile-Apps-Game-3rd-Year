@@ -224,57 +224,57 @@ namespace App1
 
         private void storyboardGreenRectAnimationFin(object sender, object e)
         {
-            if (generatedColorSequenceIndex < sequenceLength)
+            if (generatedColorSequenceIndex < sequenceLength) //if user is done and sequence is correct , proceed with sequence
             {
                 playGeneratedSequence();
             }
             else
             {
-                inAnimation = false;
-                userTurn = true;
-                generatedColorSequenceIndex = 0;
+                inAnimation = false; //not doing an animation
+                userTurn = true; //users turn to guess
+                generatedColorSequenceIndex = 0; //set back to first index on each to compare guesses
                 usersGuessSequenceIndex = 0;
             }
         }
         private void storyboardRedRectAnimationFin(object sender, object e)
         {
-            if (generatedColorSequenceIndex < sequenceLength)
+            if (generatedColorSequenceIndex < sequenceLength) //if user is done and sequence is correct , proceed with sequence
             {
                 playGeneratedSequence();
             }
             else
             {
-                inAnimation = false;
-                userTurn = true;
-                generatedColorSequenceIndex = 0;
+                inAnimation = false;//not doing an animation
+                userTurn = true;//users turn to guess
+                generatedColorSequenceIndex = 0;//set back to first index on each to compare guesses
                 usersGuessSequenceIndex = 0;
             }
         }
         private void storyboardYellowRectAnimationFin(object sender, object e)
         {
-            if (generatedColorSequenceIndex < sequenceLength)
+            if (generatedColorSequenceIndex < sequenceLength) //if user is done and sequence is correct , proceed with sequence
             {
                 playGeneratedSequence();
             }
             else
             {
-                inAnimation = false;
-                userTurn = true;
-                generatedColorSequenceIndex = 0;
+                inAnimation = false;//not doing an animation
+                userTurn = true;//users turn to guess
+                generatedColorSequenceIndex = 0;//set back to first index on each to compare guesses
                 usersGuessSequenceIndex = 0;
             }
         }
         private void storyboardBlueRectAnimationFin(object sender, object e)
         {
-            if (generatedColorSequenceIndex < sequenceLength)
+            if (generatedColorSequenceIndex < sequenceLength) //if user is done and sequence is correct , proceed with sequence
             {
                 playGeneratedSequence();
             }
             else
             {
-                inAnimation = false;
-                userTurn = true;
-                generatedColorSequenceIndex = 0;
+                inAnimation = false;//not doing an animation
+                userTurn = true;//users turn to guess
+                generatedColorSequenceIndex = 0;//set back to first index on each to compare guesses
                 usersGuessSequenceIndex = 0;
             }
         }
@@ -295,23 +295,23 @@ namespace App1
         {
             if (generatedColorSequence[generatedColorSequenceIndex] == 1) //if generated sequence is 1 play greenRect Animation
             {
-                storyboardGreenRect.Begin();
-                inAnimation = true;
+                storyboardGreenRect.Begin(); //start the animation to show user sequence
+                inAnimation = true; //doing animation, so everything has to wait
             }
             else if (generatedColorSequence[generatedColorSequenceIndex] == 2)//if generated sequence is 1 play redRect Animation
             {
-                storyboardRedRect.Begin();
-                inAnimation = true;
+                storyboardRedRect.Begin(); //start the animation to show user sequence
+                inAnimation = true; //doing animation, so everything has to wait
             }
             else if (generatedColorSequence[generatedColorSequenceIndex] == 3)//if generated sequence is 1 play yellowRect Animation
             {
-                storyboardYellowRect.Begin();
-                inAnimation = true;
-            }
+                storyboardYellowRect.Begin(); //start the animation to show user sequence
+                inAnimation = true; //doing animation, so everything has to wait
+            } 
             else if (generatedColorSequence[generatedColorSequenceIndex] == 4)//if generated sequence is 1 play blueRect Animation
             {
-                storyboardBlueRect.Begin();
-                inAnimation = true;
+                storyboardBlueRect.Begin(); //start the animation to show user sequence
+                inAnimation = true; //doing animation, so everything has to wait
             }
             generatedColorSequenceIndex++; //increase the index to move to next number in the sequence
         }

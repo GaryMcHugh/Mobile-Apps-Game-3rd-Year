@@ -134,7 +134,7 @@ namespace App1
             {
                 if (txtStart.Visibility != Visibility.Collapsed) //if the game has not already been started
                 {
-                    txtRandom.Text = "yay!!";
+                    //txtRandom.Text = "yay!!";
                     play(); //start the game
                 }
             }
@@ -208,7 +208,7 @@ namespace App1
             else //when the guess is not correct change the txtStart message to let them try again
             {
                 txtStart.Text = "Tap to Start";
-                txtRandom.Text = "gg!";
+                //txtRandom.Text = "gg!";
                 gameOver();
             }
         }

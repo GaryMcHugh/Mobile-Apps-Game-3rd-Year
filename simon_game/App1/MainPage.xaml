@@ -43,7 +43,7 @@
             <MediaElement x:Name="audioShinyDing" Source="Assets/shiny-ding.mp3" Width="0" Height="0" MediaEnded="audioShinyDing_MediaEnded" Volume="0.5"/>
         </Grid>
         <!-- used for testing purposes -->
-        <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="96"/>
+        <TextBlock x:Name="txtRandom" HorizontalAlignment="Left" Margin="254,550,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="96"/>
 
         <Grid.Resources>
             <!-- Create double animations on opacity to show sequence and input -->

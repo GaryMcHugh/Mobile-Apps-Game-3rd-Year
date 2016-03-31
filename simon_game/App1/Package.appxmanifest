@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="af36f2c1-3a74-4c19-8e7b-e4f111d2c8df" Publisher="CN=garym" Version="1.0.0.0" />
+  <Identity Name="21345GMcHugh.SimonGame" Publisher="CN=6FDE6AA1-7902-4B9D-8876-3F4EB9D76544" Version="1.1.6.0" />
   <mp:PhoneIdentity PhoneProductId="af36f2c1-3a74-4c19-8e7b-e4f111d2c8df" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>App1</DisplayName>
-    <PublisherDisplayName>garym</PublisherDisplayName>
+    <DisplayName>Simon_Game</DisplayName>
+    <PublisherDisplayName>GMcHugh</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,10 +15,13 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="App1.App">
-      <uap:VisualElements DisplayName="Simon_Game" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A Classic Simple Memory Game" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+      <uap:VisualElements DisplayName="Simon_Game" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="A Classic Simple Memory Game" BackgroundColor="transparent">
+        <uap:DefaultTile ShortName="Simon_Game" Square71x71Logo="Assets\tile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="blue" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="portrait" />
           <uap:Rotation Preference="landscape" />

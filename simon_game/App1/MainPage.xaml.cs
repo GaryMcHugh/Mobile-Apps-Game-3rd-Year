@@ -140,6 +140,7 @@ namespace App1
             }
             else if (txtStart.Text != "Tap to Start") //which means its equal to winner
             {
+                txtStart.Text = "Tap to Start";
                 gameOver();
             }
             //will change text to winner if hits max.. then txtStart wont equal Tap to start
@@ -150,29 +151,21 @@ namespace App1
         private void play()
         {
             //initialise variables here
-            int sequenceLength = 0; //has to be 0 at start of game
-            txtTurnNumber.Text = sequenceLength.ToString(); //set the turn number to current sequence length
-            usersGuessSequenceIndex = 0; //set users index back to 0
-            createColorSequence(); //do this incase they have started a new game
-
-            gameRunning = true;
-            userTurn = false;
-            //commented out for testing
-            //userTurn = false;
+            sequenceLength = 0; //has to be 0 at start of game
+            txtTurnNumber.Text = sequenceLength.ToString(); //set the turn number to current sequence length                                                      //createColorSequence(); //do this incase they have started a new game
 
             txtTurnNumber.Visibility = Visibility.Visible; //set counter to Visible when the game starts
             txtStart.Visibility = Visibility.Collapsed; //set Start text to collapsed when the game starts
 
-            compareGuess();
+            gameRunning = true;
+            usersGuessSequenceIndex = 0; //set users index back to 0
+            createColorSequence(); //do this incase they have started a new game
+            userTurn = false;
+            //commented out for testing
+            //userTurn = false;
 
-        }
-        private void gameOver()
-        {
-            //initialise variables here
-            gameRunning = false;
-            userTurn = true;
-            txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when the game ends
-            txtStart.Visibility = Visibility.Visible; //set Start text to visible when the game ends
+
+            compareGuess();
         }
 
         private void compareGuess()
@@ -204,6 +197,7 @@ namespace App1
                     else // turn number must be equal to MAX so they have won!
                     {
                         txtStart.Text = "Winner";
+                        gameOver();
                     }
                 }
                 else //the color index is less than the round number so we keep going
@@ -214,7 +208,18 @@ namespace App1
             else //when the guess is not correct change the txtStart message to let them try again
             {
                 txtStart.Text = "Tap to Start";
+                txtRandom.Text = "gg!";
+                gameOver();
             }
+        }
+
+        private void gameOver()
+        {
+            //initialise variables here
+            gameRunning = false;
+            txtTurnNumber.Visibility = Visibility.Collapsed; //set counter to collapsed when the game ends
+            txtStart.Visibility = Visibility.Visible; //set Start text to visible when the game ends
+            userTurn = true;
         }
 
         private void storyboardGreenRectAnimationFin(object sender, object e)
@@ -282,6 +287,7 @@ namespace App1
                 //generating entire sequence
                 generatedColorSequence[i] = r.Next(1, NUMBER_OF_COLORS); //generate random number and store it in the generatedSeq array
                 usersGuessSequence[i] = 0;
+                //txtRandom.Text = "generated!";
             }
         }
 

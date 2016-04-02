@@ -19,6 +19,3 @@ The webiste I used for the audio file can be found here:
 **App Name:** Simon_Game
 
 **Public Link:** [App Link](https://www.microsoft.com/en-us/store/games/simon-game/9nblggh4n1vn), Link to My App on the store.
-
-Below is a screenshot as proof that the App is submitted for certification:
-![alt text](https://github.com/GaryMcHugh/Mobile_Apps_Project/blob/master/simon_game/App1/Assets/proof.png "proof")

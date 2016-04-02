@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="21345GMcHugh.SimonGame" Publisher="CN=6FDE6AA1-7902-4B9D-8876-3F4EB9D76544" Version="1.1.8.0" />
+  <Identity Name="21345GMcHugh.SimonGame" Publisher="CN=6FDE6AA1-7902-4B9D-8876-3F4EB9D76544" Version="1.1.1.0" />
   <mp:PhoneIdentity PhoneProductId="af36f2c1-3a74-4c19-8e7b-e4f111d2c8df" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Simon_Game</DisplayName>

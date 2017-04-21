@@ -20,13 +20,13 @@ The webiste I used for the audio file can be found here:
 
 [Sound File](soundfxnow.com/), I used the "shiny-ding" mp3 file.
 
-##Student Information
+## Student Information
 **Name:** Gary McHugh
 
 **Student Number:** G00308668
 
 
-##Windows Store Information
+## Windows Store Information
 **Publisher Name:** GMcHugh
 
 **App Name:** Simon_Game
